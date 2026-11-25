@@ -2,6 +2,33 @@
 [![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.10-blue.svg)](https://doi.org/10.25663/bl.app.10)
 
 # app-wmMask
+
+<!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
+
+> **Creates a binary white matter mask from a FreeSurfer subject's aparc+aseg.mgz segmentation using mri_convert and MATLAB/vistasoft.**
+
+Converts FreeSurfer's aparc+aseg.mgz to RAS-oriented NIfTI and sets to 1 the voxels of a fixed list of FreeSurfer labels (cerebral and cerebellar white matter, corpus callosum, brainstem, thalamus, basal ganglia, ventral diencephalon and related structures), 0 elsewhere. Use it to get a white matter mask, for example for tractography seeding or masking. It needs a completed FreeSurfer recon-all output and runs with MATLAB, vistasoft and FreeSurfer on the host (no container).
+
+| | |
+|---|---|
+| 📥 **Inputs** | `neuro/freesurfer` |
+| 📤 **Outputs** | `neuro/mask` |
+| 🔗 **Run it** | [doi.org/10.25663/bl.app.10](https://doi.org/10.25663/bl.app.10) |
+
+#### 📥 Inputs
+
+| Input | Datatype | Required | Description |
+|---|---|---|---|
+| `0` | `neuro/freesurfer` | yes | FreeSurfer subject directory from recon-all. Must contain mri/aparc+aseg.mgz. |
+
+#### 📤 Outputs
+
+| Output | Datatype | Description |
+|---|---|---|
+| `mask` | `neuro/mask` | Binary white matter mask (mask.nii.gz) in the space of the FreeSurfer volume, RAS orientation; includes subcortical labels listed in make_wm_mask.m. |
+
+<!-- brainlife-app:end -->
+
 This application will create a mask nifti file of the white matter of the T1 image using Freesurfer's parcellation.
 
 ### Author
